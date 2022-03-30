@@ -12,15 +12,18 @@
 //<root folder>/source/swc
 //<root folder>/source/mai
   
-2. Run the preprocessing scripts
+3. Run the preprocessing scripts
 
   - ./preprocessing/mai/convert.py --root_dir <root folder>/source/mai --save_dir <root folder>/processed/mai
   - ./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv --save_dir <root folder>/processed/mcv
   - ./preprocessing/swc/convert.py --root_dir <root folder>/source/swc --save_dir <root folder>/processed/swc
   
-3. Run the tokenizer
+4. Set your database paths in following files:
+  - ./tokenizer/hparams/unigram_5000.yaml
+  - ./tokenizer/run.sh
+  - ./seq2seq/hparams/<setup>.yaml
 
-  - Set your paths correctly and run:
+5. Run the tokenizer (this includes the splitting of the databases in train-, test- and validation-sets)
   - ./tokenizer/run.sh
   
-4. Run ./seq2seq/train.py hparams/<setup>.yml
+6. Run ./seq2seq/train.py hparams/<setup>.yml
