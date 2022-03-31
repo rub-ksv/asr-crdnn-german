@@ -5,7 +5,7 @@ This model has a test performance of 7.24% WER.
 
 # Using the model
 You can find the model on Huggingface:
-https://huggingface.co/jfreiwa/asr-crdnn-german/edit/main/README.md
+https://huggingface.co/jfreiwa/asr-crdnn-german
 
 
 ```
