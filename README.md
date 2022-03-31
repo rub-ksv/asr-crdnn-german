@@ -22,26 +22,37 @@ asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
 
 2. Extract them in different folders in the same root folder
 
+```
 //<root folder>/source/mcv
 //<root folder>/source/swc
 //<root folder>/source/mai
-  
+```
+
 3. Run the preprocessing scripts
 
-  - ./preprocessing/mai/convert.py --root_dir <root folder>/source/mai --save_dir <root folder>/processed/mai
-  - ./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv --save_dir <root folder>/processed/mcv
-  - ./preprocessing/swc/convert.py --root_dir <root folder>/source/swc --save_dir <root folder>/processed/swc
-  
+```
+./preprocessing/mai/convert.py --root_dir <root folder>/source/mai --save_dir <root folder>/processed/mai
+./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv --save_dir <root folder>/processed/mcv
+./preprocessing/swc/convert.py --root_dir <root folder>/source/swc --save_dir <root folder>/processed/swc
+```
+
 4. Set your database paths in following files:
-  - ./tokenizer/hparams/unigram_5000.yaml
-  - ./tokenizer/run.sh
-  - ./seq2seq/hparams/<setup>.yaml
+```
+./tokenizer/hparams/unigram_5000.yaml
+./tokenizer/run.sh
+./seq2seq/hparams/<setup>.yaml
+```
 
 5. Run the tokenizer (this includes the splitting of the databases in train-, test- and validation-sets)
-  - ./tokenizer/run.sh
-  
-6. Run ./seq2seq/train.py hparams/<setup>.yml
+```
+./tokenizer/run.sh
+```
 
+6. Run the training.
+
+```
+./seq2seq/train.py hparams/<setup>.yml
+```
 
 # Limitations
 We do not provide any warranty on the performance achieved by this model when used on other datasets.
