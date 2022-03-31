@@ -3,7 +3,11 @@
 This model has a test performance of 7.24% WER.
 
 
-## Using the model
+# Using the model
+You can find the model on Huggingface:
+https://huggingface.co/jfreiwa/asr-crdnn-german/edit/main/README.md
+
+
 ```
 from speechbrain.pretrained import EncoderDecoderASR
 
