@@ -102,3 +102,10 @@ Please, cite SpeechBrain if you use it for your research or business.
   booktitle={DAGA 2022}
 }
 ```
+
+# Acknowledgements
+This work was funded by the German Federal Ministry of Education and Research (BMBF)
+within the “Innovations for Tomorrow’s Production, Services, and
+Work” Program (02L19C200), a project that is implemented by
+the Project Management Agency Karlsruhe (PTKA). The authors
+are responsible for the content of this publication.
