@@ -18,6 +18,16 @@ asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
 
 # How to run the training?
 
+0. Install prerequisite software
+
+You might need to install sox and ffmpeg on your system, as well as speechbrain and some utilities.
+
+```
+pip install speechbrain glob2 scipy tqdm pandas slugify unidecode numpy
+sudo apt-get install sox ffmpeg
+```
+
+
 1. Download the databases.
 
   - https://nats.gitlab.io/swc/
@@ -31,14 +41,17 @@ asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
 //<root folder>/source/swc
 //<root folder>/source/mai
 ```
+These folder should contain the first extracted path, that has files or more then 2 subfolders in it.
 
 3. Run the preprocessing scripts
+
 
 ```
 ./preprocessing/mai/convert.py --root_dir <root folder>/source/mai --save_dir <root folder>/processed/mai
 ./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv --save_dir <root folder>/processed/mcv
 ./preprocessing/swc/convert.py --root_dir <root folder>/source/swc --save_dir <root folder>/processed/swc
 ```
+This step takes some time, so grab a coffee. You can skip the generation of wav files by adding the "--dry_run" option to each line, if you want to generate only the json files.
 
 4. Set your database paths in following files:
 ```
