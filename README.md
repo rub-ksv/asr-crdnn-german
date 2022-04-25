@@ -21,7 +21,7 @@ asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
 0. Install prerequisite software
 
 You might need to install python3, sox and ffmpeg on your system, as well as speechbrain and some utilities.
-You may also want to use a virtual environment:
+You may also want to use a virtual environment (or conda):
 
 
 ```python
