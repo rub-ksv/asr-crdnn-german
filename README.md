@@ -28,7 +28,7 @@ You may also want to use a virtual environment.
 python3 -m venv ~/venvs/asr-crdnn-german
 source ~/venvs/asr-crdnn-german
 
-pip install speechbrain glob2 scipy tqdm pandas slugify unidecode numpy
+pip install -r requirements.txt
 sudo apt-get install sox ffmpeg
 ```
 
