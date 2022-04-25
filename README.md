@@ -12,7 +12,7 @@ https://huggingface.co/jfreiwa/asr-crdnn-german
 from speechbrain.pretrained import EncoderDecoderASR
 
 asr_model = EncoderDecoderASR.from_hparams(source="jfreiwa/asr-crdnn-german", savedir="pretrained_models/asr-crdnn-german")
-asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
+asr_model.transcribe_file("<path to a file of your choice>")
 
 ```
 
@@ -36,9 +36,7 @@ pip install -r requirements.txt
 
 1. Download the databases.
 
-  - https://www2.informatik.uni-hamburg.de/nats/pub/SWC/german_alignments.tar.xz
-  - https://www2.informatik.uni-hamburg.de/nats/pub/SWC/german_audio.tar
- 
+  - https://corpora.uni-hamburg.de/hzsk/de/islandora/object/spoken-corpus:swc-2.0
   - https://commonvoice.mozilla.org/de/datasets
   - https://www.caito.de/2019/01/03/the-m-ailabs-speech-dataset/
 
