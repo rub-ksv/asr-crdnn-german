@@ -37,9 +37,6 @@ pip install -r requirements.txt
 1. Download the databases.
 
   - https://corpora.uni-hamburg.de/hzsk/de/islandora/object/spoken-corpus:swc-2.0
-  - https://www2.informatik.uni-hamburg.de/nats/pub/SWC/german_alignments.tar.xz
-  - https://www2.informatik.uni-hamburg.de/nats/pub/SWC/german_audio.tar
-
   - https://commonvoice.mozilla.org/de/datasets
   - https://www.caito.de/2019/01/03/the-m-ailabs-speech-dataset/
 
