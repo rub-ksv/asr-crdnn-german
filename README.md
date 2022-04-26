@@ -27,7 +27,8 @@ You may also want to use a virtual environment (or conda):
 ```python
 sudo apt-get install sox ffmpeg python3-venv
 python3 -m venv ~/venvs/asr-crdnn-german
-source ~/venvs/asr-crdnn-german
+source ~/venvs/asr-crdnn-german/bin/activate
+#source ~/venvs/asr-crdnn-german
 
 pip install -r requirements.txt
 
