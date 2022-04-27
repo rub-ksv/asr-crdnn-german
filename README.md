@@ -8,12 +8,13 @@ You can find the model on Huggingface:
 https://huggingface.co/jfreiwa/asr-crdnn-german
 
 
-```
+```python
 from speechbrain.pretrained import EncoderDecoderASR
 
 asr_model = EncoderDecoderASR.from_hparams(source="jfreiwa/asr-crdnn-german", savedir="pretrained_models/asr-crdnn-german")
-asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
-
+transcript = asr_model.transcribe_file("jfreiwa/asr-crdnn-german/example-de.wav")
+print(transcript)
+# >> hier tragen die mitgliedstaaten eine entsprechend grosse verantwortung
 ```
 
 # How to run the training?
@@ -24,7 +25,7 @@ You might need to install python3, sox and ffmpeg on your system, as well as spe
 You may also want to use a virtual environment (or conda):
 
 
-```python
+```bash
 sudo apt-get install sox libsox-fmt-mp3 ffmpeg python3-venv
 python3 -m venv ~/venvs/asr-crdnn-german
 source ~/venvs/asr-crdnn-german/bin/activate
