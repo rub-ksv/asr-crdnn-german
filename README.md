@@ -61,6 +61,8 @@ These folder should contain the first extracted path, that has files or more the
 ```
 This step takes some time, so grab a coffee. You can skip the generation of wav files by adding the "--dry_run" option to each line, if you want to generate only the json files.
 
+(You can generate training-data with german umlauts if you replace the symbollink to "utils.py" with "utils_umlaute.py".)
+
 4. Set your database paths in following files:
 ```
 ./tokenizer/hparams/unigram_5000.yaml
