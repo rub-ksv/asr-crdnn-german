@@ -27,9 +27,13 @@ class GetLength():
 
     def __call__(self, filename):
         tmp = join(self.args.save_dir, filename)
-        rate, signal = audio_read(tmp)
-        assert rate == 16000 # rate should match
-        assert len(signal) > 0
+        
+        try:
+            rate, signal = audio_read(tmp)
+            assert rate == 16000 # rate should match
+            assert len(signal) > 0
+        except:
+            return 0
         return len(signal)
 
 if __name__ == '__main__':
