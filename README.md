@@ -39,7 +39,7 @@ pip install -r requirements.txt
 1. Download the databases.
 
   - https://corpora.uni-hamburg.de/hzsk/de/islandora/object/spoken-corpus:swc-2.0
-  - https://commonvoice.mozilla.org/de/datasets
+  - https://commonvoice.mozilla.org/de/datasets  (We used version 6.1)
   - https://www.caito.de/2019/01/03/the-m-ailabs-speech-dataset/
 
 2. Extract them in different folders in the same root folder
