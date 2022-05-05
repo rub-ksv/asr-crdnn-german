@@ -59,11 +59,9 @@ if __name__ == '__main__':
             start, end = sentence[1], sentence[2]
             syscall = f"sox -G {oggs} -b 32 {cutfile} trim {start} ={end} rate 16k channels 1"
 
-            if not args.dry_run and not exists(cutfile):
-                #print(syscall)
-                system(syscall)
-
             try:
+                if not args.dry_run and not exists(cutfile):
+                    system(syscall)
                 rate = None
                 signal = None
                 rate, signal = audio_read(cutfile)
@@ -79,14 +77,10 @@ if __name__ == '__main__':
                    sentence[3],
                    len(signal)])
             except Exception as e:
-                print(e)
-                print(f"Skipped file {cutfile}, because an assertion was not matched")
-                print(f"Sentence is: <<{sentence[3]}>>")
-                print(f"File should be {(end - start) * 16000} samples and is {len(signal)} samples.")
-                print(system(f"soxi {cutfile}"))
+                print(f"Skipped file {cutfile} with exception {e}")
+                print(f"Called: {syscall}")
 
 
     df = pd.DataFrame(data, columns=['utt', 'spkID', 'file_path', 'duration', 'gender', 'words', 'sentence', 'length'])
     df = df.set_index('utt')
     df.to_json(join(args.save_dir, 'complete.json'), orient='index', indent=2)
-
