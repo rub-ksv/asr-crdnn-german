@@ -4,6 +4,8 @@ from os import system, makedirs
 from os.path import join, exists
 from utils import normalize_text, get_preprocessing_arguments
 from scipy.io.wavfile import read as audio_read
+from tqdm import tqdm
+tqdm.pandas()
 
 class ToWav():
     def __init__(self, args):
@@ -45,8 +47,9 @@ if __name__ == '__main__':
     complete = pd.concat([train, test, dev])
 
     # convert to wav
+    print("Converting wavs... (This may take a while)")
     to_wav = ToWav(args)
-    complete['file_path'] = complete['path'].apply(to_wav)
+    complete['file_path'] = complete['path'].progress_apply(to_wav)
     # get length and duration
 
     get_length = GetLength(args)
