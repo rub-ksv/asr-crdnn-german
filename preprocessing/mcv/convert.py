@@ -33,6 +33,7 @@ class GetLength():
             assert rate == 16000 # rate should match
             assert len(signal) > 0
         except:
+            print("Error in file:", tmp)
             return 0
         return len(signal)
 
@@ -56,13 +57,19 @@ if __name__ == '__main__':
     complete['file_path'] = complete['path'].progress_apply(to_wav)
     # get length and duration
 
+    print("Reading file lengths")
     get_length = GetLength(args)
-    complete['length'] = complete['file_path'].apply(get_length)
+    complete['length'] = complete['file_path'].progress_apply(get_length)
+    complete = complete[complete.length != 0]
     complete['duration'] = complete['length'] / 16000
     # convert db column names
     complete.rename({'clean_sentence': 'words', 'client_id': 'spkID'}, axis='columns', inplace=True)
     # drop unnecessary columns
-    complete.drop(['path', 'locale', 'segment', 'accent', 'up_votes', 'down_votes', 'age'], axis=1, inplace=True)
+    complete.drop(['path', 'locale', 'segment', 'up_votes', 'down_votes', 'age'], axis=1, inplace=True)
+    try:
+        complete.drop(['accent'], axis=1, inplace=True)
+    except:
+        print('No accent column')
     # create new indexing by utterance id
     to_index = lambda x: x.replace('clips/','').replace('.wav','')
     complete['utt'] = complete['file_path'].apply(to_index)
