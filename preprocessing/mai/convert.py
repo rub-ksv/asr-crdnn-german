@@ -5,6 +5,8 @@ from os.path import join, dirname, sep, exists
 from utils import normalize_text, get_preprocessing_arguments
 import re
 from scipy.io.wavfile import read as audio_read
+from tqdm import tqdm
+tqdm.pandas()
 
 def add_meta_gendered(filename, args):
     table = pd.read_json(filename, orient='index')
@@ -68,13 +70,14 @@ if __name__ == '__main__':
     complete.set_index('utt', inplace=True)
     complete['file_path'] = 'clips' + sep + complete['filename']
     
-    
-    complete[['src_file','file_path']].apply(lambda x: toWav(args, x), axis=1)
+    print("Converting files")
+    complete[['src_file','file_path']].progress_apply(lambda x: toWav(args, x), axis=1)
     complete.drop(['original', 'filename', 'src_dir', 'src_file'], axis=1, inplace=True)
 
     # get length and duration
+    print("Getting file lengths")
     get_length = GetLength(args)
-    complete['length'] = complete['file_path'].apply(get_length)
+    complete['length'] = complete['file_path'].progress_apply(get_length)
     complete['duration'] = complete['length'] / 16000
 
     complete.to_json(join(args.save_dir, 'complete.json'), orient='index', indent=2)
