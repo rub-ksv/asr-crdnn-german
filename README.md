@@ -59,7 +59,7 @@ These folder should contain the first extracted path, that has files or more the
 ./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv/cv-corpus-6.1-2020-12-11/de --save_dir <root folder>/processed/mcv
 ./preprocessing/swc/convert.py --root_dir <root folder>/source/swc/german --save_dir <root folder>/processed/swc
 ```
-This step takes some time, so grab a coffee. You can skip the generation of wav files by adding the "--dry_run" option to each line, if you want to generate only the json files.
+This step takes some time, so grab a coffee. You can skip the generation of wav files by adding the "--dry_run" option to each line, if you want to regenerate only the json files after the first run.
 
 (You can generate training-data with german umlauts if you replace the symbollink to "utils.py" with "utils_umlaute.py".)
 
