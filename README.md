@@ -35,6 +35,23 @@ pip install -r requirements.txt
 
 ```
 
+If you need more information about the installation of speechbrain, please consider their installation guide:
+
+https://speechbrain.readthedocs.io/en/latest/installation.html
+
+If you want to run the complete training, it is recommended to use CUDA:
+
+https://developer.nvidia.com/cuda-downloads
+
+Here you can find more information on how to verfiy your CUDA installation:
+
+https://pytorch.org/get-started/locally/
+
+Alternatively, in some cases you might want to use nvidia-docker:
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+
+
+
 
 1. Download the databases.
 
