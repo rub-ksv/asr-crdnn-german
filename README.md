@@ -97,6 +97,12 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 ```
 ./seq2seq/train.py hparams/<setup>.yml
 ```
+If you have multiple GPUs available:
+
+```console
+python -m torch.distributed.launch --nproc_per_node=<number_of_your_gpus> \
+ train_short.py hparams/<setup>.yml --distributed_launch --distributed_backend='nccl'
+```
 
 # Limitations
 We do not provide any warranty on the performance achieved by this model when used on other datasets.
