@@ -94,14 +94,16 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 
 6. Run the training.
 
-```
-./seq2seq/train.py hparams/<setup>.yml
+```console
+cd seq2seq
+train.py hparams/<setup>.yml
 ```
 If you have multiple GPUs available:
 
 ```console
+cd seq2seq
 python -m torch.distributed.launch --nproc_per_node=<number_of_your_gpus> \
- train_short.py hparams/<setup>.yml --distributed_launch --distributed_backend='nccl'
+ train.py hparams/<setup>.yml --distributed_launch --distributed_backend='nccl'
 ```
 
 # Limitations
