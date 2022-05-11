@@ -88,8 +88,9 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 ```
 
 5. Run the tokenizer (this includes the splitting of the databases in train-, test- and validation-sets)
-```
-./tokenizer/run.sh
+```console
+cd tokenizer
+sh run.sh
 ```
 
 6. Run the training.
