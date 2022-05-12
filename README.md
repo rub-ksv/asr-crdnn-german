@@ -72,9 +72,9 @@ These folder should contain the first extracted path, that has files or more the
 
 
 ```
-./preprocessing/mai/convert.py --root_dir <root folder>/source/mai/de_DE --save_dir <root folder>/processed/mai
-./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv/cv-corpus-6.1-2020-12-11/de --save_dir <root folder>/processed/mcv
-./preprocessing/swc/convert.py --root_dir <root folder>/source/swc/german --save_dir <root folder>/processed/swc
+python ./preprocessing/mai/convert.py --root_dir <root folder>/source/mai/de_DE --save_dir <root folder>/processed/mai
+python ./preprocessing/mcv/convert.py --root_dir <root folder>/source/mcv/cv-corpus-6.1-2020-12-11/de --save_dir <root folder>/processed/mcv
+python ./preprocessing/swc/convert.py --root_dir <root folder>/source/swc/german --save_dir <root folder>/processed/swc
 ```
 This step takes some time, so grab a coffee. You can skip the generation of wav files by adding the "--dry_run" option to each line, if you want to regenerate only the json files after the first run.
 
@@ -105,14 +105,14 @@ sh run.sh
 
 ```console
 cd seq2seq
-train.py hparams/train_tl_5000.yml
+python train.py hparams/train_tl_5000.yaml
 ```
 If you have multiple GPUs available:
 
 ```console
 cd seq2seq
 python -m torch.distributed.launch --nproc_per_node=<number_of_your_gpus> \
- train.py hparams/train_tl_5000.yml --distributed_launch --distributed_backend='nccl'
+ train.py hparams/train_tl_5000.yaml --distributed_launch --distributed_backend='nccl'
 ```
 
 # Limitations
