@@ -86,6 +86,11 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 ./tokenizer/run.sh
 ./seq2seq/hparams/<setup>.yaml
 ```
+Set the batchsize in
+```
+./seq2seq/hparams/<setup>.yaml
+```
+according to your GPU memory.
 
 5. Run the tokenizer (this includes the splitting of the databases in train-, test- and validation-sets)
 ```console
