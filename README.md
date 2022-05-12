@@ -82,7 +82,6 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 
 4. Set your database paths in following files:
 ```
-./tokenizer/hparams/unigram_5000.yaml
 ./tokenizer/run.sh
 ./seq2seq/hparams/<setup>.yaml
 ```
