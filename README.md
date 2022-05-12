@@ -83,13 +83,17 @@ This step takes some time, so grab a coffee. You can skip the generation of wav 
 4. Set your database paths in following files:
 ```
 ./tokenizer/run.sh
-./seq2seq/hparams/<setup>.yaml
+./seq2seq/hparams/train_tl_5000.yaml
 ```
 Set the batchsize in
 ```
-./seq2seq/hparams/<setup>.yaml
+./seq2seq/hparams/train_tl_5000.yaml
 ```
-according to your GPU memory.
+according to your GPU memory. We chose a batchsize of 12 for 32GB of GPU memory.
+You can run the alternative setups from the paper:
+ - ./seq2seq/hparams/train_tl_5000.yaml   (Transfer learning from English model)
+ - ./seq2seq/hparams/train_unigram_5000.yaml   (Baseline setup)
+ - ./seq2seq/hparams/train_unidirectional_5000.yaml   (Unidirectional LSTM)
 
 5. Run the tokenizer (this includes the splitting of the databases in train-, test- and validation-sets)
 ```console
@@ -101,14 +105,14 @@ sh run.sh
 
 ```console
 cd seq2seq
-train.py hparams/<setup>.yml
+train.py hparams/train_tl_5000.yml
 ```
 If you have multiple GPUs available:
 
 ```console
 cd seq2seq
 python -m torch.distributed.launch --nproc_per_node=<number_of_your_gpus> \
- train.py hparams/<setup>.yml --distributed_launch --distributed_backend='nccl'
+ train.py hparams/train_tl_5000.yml --distributed_launch --distributed_backend='nccl'
 ```
 
 # Limitations
